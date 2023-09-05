@@ -3,11 +3,9 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductsPage from '../features/products/ProductsPage';
-import UsersPage from '../features/users/UsersPage';
 import NavBar from '../features/navbar/NavBar';
 import ProductPage from '../features/products/ProductPage';
 import '../features/products/styles/style.scss';
-import MainPage from '../features/main/MainPage';
 import Error from '../features/404/404';
 import { useAppDispatch } from '../redux/store';
 import * as api from './api';
@@ -48,10 +46,8 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<NavBar />}>
           {/* <Route path="/" element={<Callback />} /> */}
-          <Route path="/" element={<MainPage />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/" element={<ProductsPage />} />
           <Route path="/products/:productId" element={<ProductPage />} />
-          <Route path="/users" element={<UsersPage />} />
           <Route path="/sign-up" element={<RegistrationFormPage />} />
           <Route path="/sign-in" element={<AuthorizationFormPage />} />
           <Route path="*" element={<Error />} />

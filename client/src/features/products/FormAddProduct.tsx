@@ -5,7 +5,7 @@ import { addProduct } from './productsSlice';
 
 function FormAddProduct(): JSX.Element {
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [discription, setDiscription] = useState('');
   const [img, setImg] = useState('');
   const [price, setPrice] = useState('');
   const [weight, setWeight] = useState('');
@@ -16,12 +16,12 @@ function FormAddProduct(): JSX.Element {
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
-    dispatch(addProduct({ title, description, img, price, weight }));
+    dispatch(addProduct({ title, discription, img, price, weight }));
   };
 
   return (
     <div className="form__container">
-      <h2>Form add product</h2>
+      <h2>Форма добавления</h2>
       <form className="form__body" onSubmit={handleAddProduct}>
         <label htmlFor="">
           Название продукта
@@ -34,8 +34,8 @@ function FormAddProduct(): JSX.Element {
         <label htmlFor="">
           Описание продукта
           <input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={discription}
+            onChange={(e) => setDiscription(e.target.value)}
             type="text"
           />
         </label>
@@ -49,7 +49,6 @@ function FormAddProduct(): JSX.Element {
         </label>
         <label htmlFor="">
           Цена продукта
-          
           <input
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -64,7 +63,7 @@ function FormAddProduct(): JSX.Element {
             type="text"
           />
         </label>
-        <button type="submit">Добавить продукт</button>
+        <button type="submit">Добавить</button>
       </form>
     </div>
   );
