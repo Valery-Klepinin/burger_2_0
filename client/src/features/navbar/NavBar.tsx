@@ -24,17 +24,7 @@ function NavBar(): JSX.Element {
         <ul className="nav__ul">
           <li>
             <NavLink className={({ isActive }) => (isActive ? 'active_link' : '')} to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={({ isActive }) => (isActive ? 'active_link' : '')} to="/products">
-              Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={({ isActive }) => (isActive ? 'active_link' : '')} to="/users">
-              Users
+              Меню
             </NavLink>
           </li>
 

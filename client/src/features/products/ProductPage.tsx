@@ -6,7 +6,7 @@ import { fetchUpdateProduct } from '../../App/api';
 
 function ProductPage(): JSX.Element {
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [discription, setDiscription] = useState('');
   const [img, setImg] = useState('');
   const [price, setPrice] = useState('');
   const [weight, setWeight] = useState('');
@@ -28,7 +28,7 @@ function ProductPage(): JSX.Element {
     e.preventDefault();
     if (productId) {
       const data = await fetchUpdateProduct(
-        { title, description, img, price, weight },
+        { title, discription, img, price, weight },
         +productId
       );
       dispatch({ type: 'products/update', payload: data });
@@ -37,42 +37,59 @@ function ProductPage(): JSX.Element {
 
   return (
     <>
-      <h2>Product page</h2>
-      <form onSubmit={handleUpdateProduct}>
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-        />
-        <input
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          type="text"
-        />
-        <input
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-          type="text"
-        />
-        <input
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          type="text"
-        />
-        <input
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          type="text"
-        />
-        <button type="submit">Обновить продукт</button>
-      </form>
+      <div className="form__container">
+        <h2>Форма изменения</h2>
+        <form className="form__body" onSubmit={handleUpdateProduct}>
+          <label htmlFor="">
+            Название продукта
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+            />
+          </label>
+          <label htmlFor="">
+            Описание продукта
+            <input
+              value={discription}
+              onChange={(e) => setDiscription(e.target.value)}
+              type="text"
+            />
+          </label>
+          <label htmlFor="">
+            Картинка продукта
+            <input
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+              type="text"
+            />
+          </label>
+          <label htmlFor="">
+            Цена продукта
+            <input
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              type="text"
+            />
+          </label>
+          <label htmlFor="">
+            Вес продукта
+            <input
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              type="text"
+            />
+          </label>
+          <button type="submit">Обновить продукт</button>
+        </form>
+      </div>
       <div className="products__container">
         <div className="product__container">
           {ourProduct ? (
             <>
               <h2>{ourProduct.title}</h2>
               <img src={ourProduct.img} alt="poster" />
-              <p>{ourProduct.description}</p>
+              <p>{ourProduct.discription}</p>
               <p>{ourProduct.price}</p>
               <p>{ourProduct.weight}</p>
             </>
