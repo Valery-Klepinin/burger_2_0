@@ -23,7 +23,10 @@ function NavBar(): JSX.Element {
       <nav className="nav__container">
         <ul className="nav__ul">
           <li>
-            <NavLink className={({ isActive }) => (isActive ? 'active_link' : '')} to="/">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'active_link' : '')}
+              to="/"
+            >
               Меню
             </NavLink>
           </li>
@@ -35,7 +38,8 @@ function NavBar(): JSX.Element {
                 <a
                   onClick={() => {
                     handleLogOut();
-                  }} href='/'
+                  }}
+                  href="/"
                 >
                   LogOut
                 </a>

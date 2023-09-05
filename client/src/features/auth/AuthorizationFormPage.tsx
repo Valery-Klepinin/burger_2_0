@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import './styles/styles.scss';
 import { useNavigate } from 'react-router-dom';
-import { fetchSignUp } from '../../App/api';
+// import { fetchSignUp } from '../../App/api';
 import { useAppDispatch } from '../../redux/store';
 import { checkAuto } from './authSlice';
-
-
-
 
 function AuthorizationFormPage(): JSX.Element {
   // const [name, setName] = useState('');
@@ -24,7 +21,6 @@ function AuthorizationFormPage(): JSX.Element {
   return (
     <div className="reg__container">
       <form onSubmit={handleSubmit} className="auth__form">
-        
         <label>
           email
           <input

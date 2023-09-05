@@ -24,7 +24,12 @@ function RegistrationFormPage(): JSX.Element {
       <form onSubmit={handleSubmit} className="reg__form">
         <label>
           Name
-          <input value={name} onChange={(e) => setName(e.target.value)} name="name" type="text" />
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            name="name"
+            type="text"
+          />
         </label>
         <label>
           email

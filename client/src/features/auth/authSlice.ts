@@ -8,11 +8,17 @@ const initialState: State = {
   error: undefined,
 };
 
-export const signUp = createAsyncThunk('auth/sign-up', (user: AuthUser) => api.fetchSignUp(user));
+export const signUp = createAsyncThunk('auth/sign-up', (user: AuthUser) =>
+  api.fetchSignUp(user)
+);
 
-export const checkAuto = createAsyncThunk('auth/sign-in', (user: AuthUser) => api.fetchSignIn(user));
-export const authcheckUser=createAsyncThunk('auth/check', ()=>api.fetchCheckUser())
-export const logOut=createAsyncThunk('auth/logout', ()=> api.fetchLogOut() )
+export const checkAuto = createAsyncThunk('auth/sign-in', (user: AuthUser) =>
+  api.fetchSignIn(user)
+);
+export const authcheckUser = createAsyncThunk('auth/check', () =>
+  api.fetchCheckUser()
+);
+export const logOut = createAsyncThunk('auth/logout', () => api.fetchLogOut());
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -27,27 +33,21 @@ const authSlice = createSlice({
       })
       .addCase(checkAuto.fulfilled, (state, action) => {
         console.log(action.payload);
-        
+
         state.authUser = action.payload;
       })
       .addCase(checkAuto.rejected, (state, action) => {
         state.error = action.error.message;
       })
       .addCase(authcheckUser.fulfilled, (state, action) => {
-       
-        
         state.authUser = action.payload;
       })
       .addCase(logOut.fulfilled, (state) => {
-       
-        
         state.authUser = undefined;
       })
       .addCase(logOut.rejected, (state, action) => {
         state.error = action.error.message;
-      })
-      
-      
+      });
   },
 });
 
