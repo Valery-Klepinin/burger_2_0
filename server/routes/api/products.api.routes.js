@@ -12,11 +12,11 @@ router
   })
   .post('/', async (req, res) => {
     try {
-      const { title, img, description, price, weight } = req.body;
+      const { title, img, discription, price, weight } = req.body;
       const newProduct = await Product.create({
         title,
         img,
-        description,
+        discription,
         price,
         weight,
         user_id: 1,
@@ -28,11 +28,11 @@ router
   })
   .put('/:productId', async (req, res) => {
     try {
-      const { title, img, description, price, weight} = req.body;
+      const { title, img, discription, price, weight } = req.body;
       const product = await Product.findOne({ where: { id: req.params.productId } });
       product.title = title;
       product.img = img;
-      product.description = description;
+      product.discription = discription;
       product.price = price;
       product.weight = weight;
       await product.save();
