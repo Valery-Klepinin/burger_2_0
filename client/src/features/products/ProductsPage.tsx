@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ProductItem from './ProductItem';
 import './styles/style.scss';
 import { RootState } from '../../redux/store';
-import { useSelector } from 'react-redux';
 import FormAddProduct from './FormAddProduct';
 
 function ProductsPage(): JSX.Element {
-  const [filter, setFilter] = useState(0);
+  const [filter,] = useState(0);
   const products = useSelector((store: RootState) => store.products.products);
 
   const filteredProducts = products.filter((product) =>
