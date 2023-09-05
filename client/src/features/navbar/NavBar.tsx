@@ -32,14 +32,13 @@ function NavBar(): JSX.Element {
             <>
               <li>Hello, {authUser?.name}!</li>
               <li>
-                <button
-                  type="button"
+                <a
                   onClick={() => {
                     handleLogOut();
-                  }}
+                  }} href='/'
                 >
                   LogOut
-                </button>
+                </a>
               </li>
             </>
           ) : (
@@ -55,7 +54,7 @@ function NavBar(): JSX.Element {
               <li>
                 <NavLink
                   className={({ isActive }) => (isActive ? 'active_link' : '')}
-                  to="/sign-in"
+                  to="/check-user"
                 >
                   Authorization
                 </NavLink>
