@@ -14,7 +14,7 @@ import * as api from './api';
 import RegistrationFormPage from '../features/auth/RegistrationFormPage';
 import AuthorizationFormPage from '../features/auth/AuthorizationFormPage';
 import { loadProducts } from '../features/products/productsSlice';
-import { checkUser } from '../features/auth/authSlice';
+import { authcheckUser } from '../features/auth/authSlice';
 import { usersLoad } from '../features/users/usersSlice';
 
 function App(): JSX.Element {
@@ -30,7 +30,7 @@ function App(): JSX.Element {
   //   dispatch({ type: 'users/load', payload: data });
   // };
 
-  // const checkUser = async (): Promise<void> => {
+  // const checkUser = async (e): Promise<void> => {
   //   const data = await api.fetchCheckUser();
   //   if (data) {
   //     dispatch({ type: 'auth/check', payload: data });
@@ -40,7 +40,7 @@ function App(): JSX.Element {
   useEffect(() => {
     dispatch(loadProducts());
     dispatch(usersLoad());
-    dispatch(checkUser());
+    dispatch(authcheckUser());
   }, []);
 
   return (
@@ -53,7 +53,7 @@ function App(): JSX.Element {
           <Route path="/products/:productId" element={<ProductPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/sign-up" element={<RegistrationFormPage />} />
-          <Route path="/sign-in" element={<AuthorizationFormPage />} />
+          <Route path="/check-user" element={<AuthorizationFormPage />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

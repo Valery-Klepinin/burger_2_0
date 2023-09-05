@@ -10,8 +10,9 @@ const initialState: State = {
 
 export const signUp = createAsyncThunk('auth/sign-up', (user: AuthUser) => api.fetchSignUp(user));
 
-export const checkUser = createAsyncThunk('auth/check-user', () => api.fetchCheckUser());
-
+export const checkAuto = createAsyncThunk('auth/sign-in', (user: AuthUser) => api.fetchSignIn(user));
+export const authcheckUser=createAsyncThunk('auth/check', ()=>api.fetchCheckUser())
+export const logOut=createAsyncThunk('auth/logout', ()=> api.fetchLogOut() )
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -24,12 +25,29 @@ const authSlice = createSlice({
       .addCase(signUp.rejected, (state, action) => {
         state.error = action.error.message;
       })
-      .addCase(checkUser.fulfilled, (state, action) => {
+      .addCase(checkAuto.fulfilled, (state, action) => {
+        console.log(action.payload);
+        
         state.authUser = action.payload;
       })
-      .addCase(checkUser.rejected, (state, action) => {
+      .addCase(checkAuto.rejected, (state, action) => {
         state.error = action.error.message;
-      });
+      })
+      .addCase(authcheckUser.fulfilled, (state, action) => {
+       
+        
+        state.authUser = action.payload;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+       
+        
+        state.authUser = undefined;
+      })
+      .addCase(logOut.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      
+      
   },
 });
 
