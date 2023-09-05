@@ -1,5 +1,9 @@
 import { AuthUser } from '../features/auth/types/types';
-import { Product, ProductId, ProductWithoutId } from '../features/products/types/types';
+import {
+  Product,
+  ProductId,
+  ProductWithoutId,
+} from '../features/products/types/types';
 import { User } from '../features/users/types/types';
 
 /* eslint-disable import/prefer-default-export */
@@ -19,7 +23,9 @@ export const fetchUsers = async (): Promise<User[]> => {
   return res.json();
 };
 
-export const fetchAddProduct = async (product: ProductWithoutId): Promise<Product> => {
+export const fetchAddProduct = async (
+  product: ProductWithoutId
+): Promise<Product> => {
   const res = await fetch('/api/products', {
     method: 'POST',
     headers: {
@@ -59,19 +65,18 @@ export const fetchCheckUser = async (): Promise<AuthUser> => {
   return res.json();
 };
 
-export const fetchSignIn = async (user:AuthUser): Promise<AuthUser> => {
-  const res = await fetch('/api/auth/sign-in' ,{
+export const fetchSignIn = async (user: AuthUser): Promise<AuthUser> => {
+  const res = await fetch('/api/auth/sign-in', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
     body: JSON.stringify(user),
-
-  })
+  });
   return res.json();
 };
 
 export const fetchLogOut = async (): Promise<{ message: string }> => {
-  const res = await fetch('/api/auth/logout');{}
+  const res = await fetch('/api/auth/logout');
   return res.json();
 };
