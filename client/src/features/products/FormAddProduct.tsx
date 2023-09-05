@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchAddProduct } from '../../App/api';
+// import { fetchAddProduct } from '../../App/api';
 import { useAppDispatch } from '../../redux/store';
 import { addProduct } from './productsSlice';
 

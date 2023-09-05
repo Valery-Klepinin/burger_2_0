@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './styles/styles.scss';
 import { useNavigate } from 'react-router-dom';
-import { fetchSignUp } from '../../App/api';
+// import { fetchSignUp } from '../../App/api';
 import { useAppDispatch } from '../../redux/store';
 import { signUp } from './authSlice';
 

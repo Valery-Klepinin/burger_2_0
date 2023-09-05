@@ -8,7 +8,7 @@ import ProductPage from '../features/products/ProductPage';
 import '../features/products/styles/style.scss';
 import Error from '../features/404/404';
 import { useAppDispatch } from '../redux/store';
-import * as api from './api';
+// import * as api from './api';
 import RegistrationFormPage from '../features/auth/RegistrationFormPage';
 import AuthorizationFormPage from '../features/auth/AuthorizationFormPage';
 import { loadProducts } from '../features/products/productsSlice';
