@@ -19,10 +19,10 @@ function AuthorizationFormPage(): JSX.Element {
     navigate('/');
   };
   return (
-    <div className="reg__container">
-      <form onSubmit={handleSubmit} className="auth__form">
+    <div className="form__container">
+      <form onSubmit={handleSubmit} className="form__body">
         <label>
-          email
+          Ваш email
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -31,7 +31,7 @@ function AuthorizationFormPage(): JSX.Element {
           />
         </label>
         <label>
-          Password
+          Ваш пароль
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -39,7 +39,7 @@ function AuthorizationFormPage(): JSX.Element {
             type="text"
           />
         </label>
-        <button type="submit">Авторизоваться</button>
+        <button type="submit">Войти</button>
       </form>
     </div>
   );
