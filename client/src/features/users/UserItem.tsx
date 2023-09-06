@@ -1,7 +1,7 @@
 import React from 'react';
 import { User } from './types/types';
 import { removeUser } from './usersSlice';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../store';
 
 function UserItem({ user }: { user: User }): JSX.Element {
   const dispatch = useAppDispatch();

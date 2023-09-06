@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../redux/store';
+import { RootState, useAppDispatch } from '../../store';
 import { fetchUpdateProduct } from '../../App/api';
+import { addBasket } from './productsSlice';
 
 function ProductPage(): JSX.Element {
   const [title, setTitle] = useState('');
@@ -34,6 +35,15 @@ function ProductPage(): JSX.Element {
       dispatch({ type: 'products/update', payload: data });
     }
   };
+  const onHandleAddBusket:React.MouseEventHandler<HTMLButtonElement> = () =>{
+    if(productId){
+      console.log(productId);
+      
+    dispatch(addBasket(+productId))
+    }
+
+  }
+  
 
   return (
     <>
@@ -97,6 +107,9 @@ function ProductPage(): JSX.Element {
             <p>Такого продукта нет</p>
           )}
         </div>
+        <button type="button" onClick={onHandleAddBusket}>
+          добавить в карзину
+        </button>
         <button type="button" onClick={() => navigate(-1)}>
           Назад
         </button>

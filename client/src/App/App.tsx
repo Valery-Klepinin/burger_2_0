@@ -7,13 +7,14 @@ import NavBar from '../features/navbar/NavBar';
 import ProductPage from '../features/products/ProductPage';
 import '../features/products/styles/style.scss';
 import Error from '../features/404/404';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../store';
 // import * as api from './api';
 import RegistrationFormPage from '../features/auth/RegistrationFormPage';
 import AuthorizationFormPage from '../features/auth/AuthorizationFormPage';
-import { loadProducts } from '../features/products/productsSlice';
+import { loadBasket, loadProducts } from '../features/products/productsSlice';
 import { authcheckUser } from '../features/auth/authSlice';
 import { usersLoad } from '../features/users/usersSlice';
+import BasketPage from '../features/products/BasketPage';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -39,6 +40,7 @@ function App(): JSX.Element {
     dispatch(loadProducts());
     dispatch(usersLoad());
     dispatch(authcheckUser());
+    dispatch(loadBasket())
   }, []);
 
   return (
@@ -50,6 +52,7 @@ function App(): JSX.Element {
           <Route path="/products/:productId" element={<ProductPage />} />
           <Route path="/sign-up" element={<RegistrationFormPage />} />
           <Route path="/check-user" element={<AuthorizationFormPage />} />
+          <Route path="/busket" element={<BasketPage />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from './types/types';
-import { useAppDispatch } from '../../redux/store';
-import { removeProduct } from './productsSlice';
+import { useAppDispatch } from '../../store';
+import { addBasket, removeProduct } from './productsSlice';
 
 function ProductItem({ product }: { product: Product }): JSX.Element {
   const dispatch = useAppDispatch();
@@ -18,6 +18,13 @@ function ProductItem({ product }: { product: Product }): JSX.Element {
         >
           Удалить
         </button>
+        {/* <button
+          onClick={() => dispatch(addBasket(product.id))}
+          type="button"
+        >
+          В корзину
+        </button> */}
+
         <Link className="products__link-info" to={`/products/${product.id}`}>
           Подробнее
         </Link>

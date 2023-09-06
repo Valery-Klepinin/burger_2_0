@@ -2,7 +2,7 @@ import React from 'react';
 import UserItem from './UserItem';
 import './styles/style.scss';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import { RootState } from '../../store';
 
 function UsersPage(): JSX.Element {
   const users = useSelector((store: RootState) => store.users.users);
