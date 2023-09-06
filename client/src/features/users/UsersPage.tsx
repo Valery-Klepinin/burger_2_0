@@ -1,7 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import UserItem from './UserItem';
 import './styles/style.scss';
-import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
 function UsersPage(): JSX.Element {
