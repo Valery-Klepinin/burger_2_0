@@ -2,6 +2,6 @@ import { Order, ProdOrder, Product } from './types';
 
 export type State = {
   products: Product[];
-  basket: Order | any;
+  basket: Product[];
   error: undefined | string;
 };

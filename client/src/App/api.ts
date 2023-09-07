@@ -54,7 +54,7 @@ export const fetchUpdateProduct = async (
 export const fetchBasket = async (
   id: ProductId,
   count: number
-): Promise<{ message: string; prodOrder: ProdOrder }> => {
+): Promise<Product> => {
   const res = await fetch(`/api/basket`, {
     method: 'POST',
     headers: {
@@ -65,7 +65,7 @@ export const fetchBasket = async (
   return res.json();
 };
 
-export const fetchLoadBasket = async (): Promise<Order> => {
+export const fetchLoadBasket = async (): Promise<Product[]> => {
   const res = await fetch('/api/basket');
   return res.json();
 };
