@@ -7,12 +7,13 @@ router
     try {
       const order = await Order.findOne({
         where: { user_id: req.session.user_id, status: false },
-        include: [{ model: ProdOrder }],
+        include: [{ model: ProdOrder, include: [{ model: Product }] }],
       });
       console.log(order);
       // const order = await Order.findOne({ where: { user_id: req.session.user_id, status: false } });
       // const prodOrders = await ProdOrder.findAll({ where: { order_id: order.id } });
-      res.json(order);
+      const products = order.ProdOrders.map((el) => el.Product);
+      res.json(products);
     } catch ({ message }) {
       res.json({ message });
     }
@@ -38,7 +39,7 @@ router
         prodOrder = await ProdOrder.create({ order_id: newOrder.id, product_id: id, count: count });
       }
 
-      res.json({ message: 'success', prodOrder });
+      res.json(prodOrder);
     } catch ({ message }) {
       res.json({ message });
     }

@@ -5,7 +5,7 @@ import * as api from '../../App/api';
 
 const initialState: State = {
   products: [],
-  basket: {},
+  basket: [],
   error: undefined,
 };
 
@@ -50,8 +50,7 @@ const productsSlice = createSlice({
       })
       .addCase(addBasket.fulfilled, (state, action) => {
         // if (state.basket) {
-          state.basket.ProdOrders.push(action.payload.prodOrder);
-          console.log(action.payload.prodOrder);
+          state.basket.push(action.payload);
         // }
       })
       .addCase(addBasket.rejected, (state, action) => {
@@ -59,7 +58,7 @@ const productsSlice = createSlice({
       })
       .addCase(loadBasket.fulfilled, (state, action) => {
         state.basket = action.payload;
-        // console.log(action.payload);
+        console.log(action.payload);
       })
       .addCase(loadBasket.rejected, (state, action) => {
         state.error = action.error.message;
