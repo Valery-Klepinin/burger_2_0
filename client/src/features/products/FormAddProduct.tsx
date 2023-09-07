@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { fetchAddProduct } from '../../App/api';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch } from '../../store';
 import { addProduct } from './productsSlice';
 
 function FormAddProduct(): JSX.Element {

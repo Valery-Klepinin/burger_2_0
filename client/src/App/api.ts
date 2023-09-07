@@ -1,5 +1,7 @@
 import { AuthUser } from '../features/auth/types/types';
 import {
+  Order,
+  ProdOrder,
   Product,
   ProductId,
   ProductWithoutId,
@@ -47,6 +49,24 @@ export const fetchUpdateProduct = async (
     },
     body: JSON.stringify(newProduct),
   });
+  return res.json();
+};
+export const fetchBasket = async (
+  id: ProductId,
+  count: number
+): Promise<{ message: string; prodOrder: ProdOrder }> => {
+  const res = await fetch(`/api/basket`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ id, count }),
+  });
+  return res.json();
+};
+
+export const fetchLoadBasket = async (): Promise<Order> => {
+  const res = await fetch('/api/basket');
   return res.json();
 };
 

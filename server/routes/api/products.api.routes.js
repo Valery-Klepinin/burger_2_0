@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product } = require('../../db/models');
+const { Product, ProdOrder, Order } = require('../../db/models');
 
 router
   .get('/', async (req, res) => {
@@ -10,6 +10,7 @@ router
       res.json({ message });
     }
   })
+
   .post('/', async (req, res) => {
     try {
       const { title, img, discription, price, weight } = req.body;
@@ -26,6 +27,7 @@ router
       res.json({ message });
     }
   })
+
   .put('/:productId', async (req, res) => {
     try {
       const { title, img, discription, price, weight } = req.body;
@@ -41,6 +43,7 @@ router
       res.json({ message });
     }
   })
+
   .delete('/:productId', async (req, res) => {
     try {
       const result = await Product.destroy({ where: { id: req.params.productId } });
@@ -52,6 +55,8 @@ router
     } catch ({ message }) {
       res.json({ message });
     }
-  });
+  })
+
+ 
 
 module.exports = router;

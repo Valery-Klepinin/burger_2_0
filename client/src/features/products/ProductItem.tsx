@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Product } from './types/types';
-import { RootState, useAppDispatch } from '../../redux/store';
-import { removeProduct } from './productsSlice';
+import { useAppDispatch } from '../../store';
+import { addBasket, removeProduct } from './productsSlice';
 
 function ProductItem({ product }: { product: Product }): JSX.Element {
   const dispatch = useAppDispatch();
@@ -14,14 +14,20 @@ function ProductItem({ product }: { product: Product }): JSX.Element {
       <h4>{product.title}</h4>
       <img src={product.img} alt="product" />
       <div className="products__btn-container">
-        {user && user.isAdmin && (
-          <button
-            onClick={() => dispatch(removeProduct(product.id))}
-            type="button"
-          >
-            Удалить
-          </button>
+    {user && user.isAdmin && (
+        <button
+          onClick={() => dispatch(removeProduct(product.id))}
+          type="button"
+        >
+          Удалить
+        </button>
         )}
+        {/* <button
+          onClick={() => dispatch(addBasket(product.id))}
+          type="button"
+        >
+          В корзину
+        </button> */}
         <Link className="products__link-info" to={`/products/${product.id}`}>
           Подробнее
         </Link>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './styles/styles.scss';
 import { useNavigate } from 'react-router-dom';
-// import { fetchSignUp } from '../../App/api';
-import { useAppDispatch } from '../../redux/store';
+
+import { useAppDispatch } from '../../store';
 import { checkAuto } from './authSlice';
 
 function AuthorizationFormPage(): JSX.Element {
-  // const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
