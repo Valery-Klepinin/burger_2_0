@@ -36,15 +36,13 @@ function ProductPage(): JSX.Element {
       dispatch({ type: 'products/update', payload: data });
     }
   };
-  const onHandleAddBusket:React.MouseEventHandler<HTMLButtonElement> = () =>{
-    if(productId){
+  const onHandleAddBusket: React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (productId) {
       console.log(productId);
-      
-    dispatch(addBasket(+productId))
-    }
 
-  }
-  
+      dispatch(addBasket(+productId));
+    }
+  };
 
   return (
     <>
@@ -111,7 +109,7 @@ function ProductPage(): JSX.Element {
           )}
         </div>
         <button type="button" onClick={onHandleAddBusket}>
-          добавить в карзину
+          В корзину
         </button>
         <button type="button" onClick={() => navigate(-1)}>
           Назад
