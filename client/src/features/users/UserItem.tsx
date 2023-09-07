@@ -8,7 +8,6 @@ function UserItem({ user }: { user: User }): JSX.Element {
   return (
     <div className="users__item">
       <h5>{user.name}</h5>
-      <img src={user.avatar} alt="user" />
       <button type="button" onClick={() => dispatch(removeUser(user.id))}>
         Delete
       </button>

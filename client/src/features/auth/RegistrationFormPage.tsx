@@ -20,10 +20,10 @@ function RegistrationFormPage(): JSX.Element {
   };
 
   return (
-    <div className="reg__container">
-      <form onSubmit={handleSubmit} className="reg__form">
+    <div className="form__container">
+      <form onSubmit={handleSubmit} className="form__body">
         <label>
-          Name
+          Ваше имя
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -32,7 +32,7 @@ function RegistrationFormPage(): JSX.Element {
           />
         </label>
         <label>
-          email
+          Ваш email
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -41,7 +41,7 @@ function RegistrationFormPage(): JSX.Element {
           />
         </label>
         <label>
-          Password
+          Ваш пароль
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}

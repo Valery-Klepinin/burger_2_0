@@ -37,7 +37,7 @@ function NavBar(): JSX.Element {
               <a href="/busket">
                 <BsFillCartFill />{' '}
               </a>
-              <li>Hello, {authUser?.name}!</li>
+              <li>Добро пожаловать, {authUser?.name}!</li>
               <li>
                 <a
                   onClick={() => {
@@ -45,7 +45,7 @@ function NavBar(): JSX.Element {
                   }}
                   href="/"
                 >
-                  LogOut
+                  Выйти
                 </a>
               </li>
             </>
@@ -56,7 +56,7 @@ function NavBar(): JSX.Element {
                   className={({ isActive }) => (isActive ? 'active_link' : '')}
                   to="/sign-up"
                 >
-                  Registration
+                  Регистрация
                 </NavLink>
               </li>
               <li>
@@ -64,7 +64,7 @@ function NavBar(): JSX.Element {
                   className={({ isActive }) => (isActive ? 'active_link' : '')}
                   to="/check-user"
                 >
-                  Authorization
+                  Авторизация
                 </NavLink>
               </li>
             </>
